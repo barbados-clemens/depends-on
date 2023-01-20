@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@depends-on-test/js-lib-one": ["libs/js-lib-one/src/index.ts"],
+      "@depends-on-test/js-lib-two": ["libs/js-lib-two/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

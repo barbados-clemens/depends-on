@@ -1,0 +1,26 @@
+{
+  "name": "js-lib-two",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/js-lib-two/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/js-lib-two",
+        "main": "libs/js-lib-two/src/index.ts",
+        "tsConfig": "libs/js-lib-two/tsconfig.lib.json",
+        "assets": ["libs/js-lib-two/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/js-lib-two/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

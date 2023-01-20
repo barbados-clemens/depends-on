@@ -1,0 +1,37 @@
+{
+  "name": "js-lib-one",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/js-lib-one/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/js-lib-one",
+        "main": "libs/js-lib-one/src/index.ts",
+        "tsConfig": "libs/js-lib-one/tsconfig.lib.json",
+        "assets": ["libs/js-lib-one/*.md"]
+      }
+    },
+    "something": {
+      "executor": "@nrwl/workspace:run-commands",
+      "dependsOn": ["^build"],
+      "options": {
+        "commands": [
+          {
+            "command": "echo 'something'"
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/js-lib-one/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}
